@@ -11,9 +11,16 @@ const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", display: 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: `Coach running Chartres | ${brand.name}`, template: `%s | ${brand.name}` },
+  title: {
+    default: `Coach running Chartres | ${brand.name}`,
+    template: `%s | ${brand.name}`,
+  },
   description: brand.promise,
   metadataBase: new URL(brand.site.url || "http://localhost:3000"),
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
