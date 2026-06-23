@@ -3,6 +3,7 @@ import { generatePageMetadata } from "@/lib/seo";
 import { brand } from "@/lib/brand";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { methodeHero, methodeSteps, methodeVsGeneric, methodeTools } from "@/content/methode";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -30,7 +31,7 @@ export default function LaMethodePage() {
         </div>
       </section>
 
-      {/* ── Les 4 étapes ──────────────────────────────────────────── */}
+      {/* ── Les 4 étapes ──────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -74,7 +75,7 @@ export default function LaMethodePage() {
         </div>
       </section>
 
-      {/* ── Pourquoi pas un plan générique ────────────────────────── */}
+      {/* ── Pourquoi pas un plan générique ────────────────────────────────────── */}
       <section className="section-padding bg-brand-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -85,27 +86,29 @@ export default function LaMethodePage() {
             dark
             className="mb-14"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {methodeVsGeneric.items.map((item) => (
               <div key={item.label} className="flex flex-col gap-4">
                 <p className="font-inter text-xs font-semibold tracking-widest uppercase text-white/30">
                   {item.label}
                 </p>
+                {/* Plan générique */}
                 <div className="rounded-card p-5 bg-white/5 border border-white/10 flex-1">
                   <p className="font-inter text-xs font-semibold text-white/30 uppercase tracking-widest mb-2">Plan générique</p>
                   <p className="font-inter text-sm text-white/50 leading-relaxed">{item.generic}</p>
                 </div>
+                {/* MB Training */}
                 <div className="rounded-card p-5 bg-brand-orange/15 border border-brand-orange/30 flex-1">
                   <p className="font-inter text-xs font-semibold text-brand-orange uppercase tracking-widest mb-2">MB Training</p>
                   <p className="font-inter text-sm text-white/80 leading-relaxed">{item.personalized}</p>
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Les outils ────────────────────────────────────────────── */}
+      {/* ── Les outils ───────────────────────────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -115,7 +118,7 @@ export default function LaMethodePage() {
             center
             className="mb-12"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ScrollReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {methodeTools.items.map((tool) => (
               <div key={tool.title} className="rounded-card p-6 bg-brand-warm flex flex-col gap-3">
                 <span className="text-3xl">{tool.icon}</span>
@@ -123,7 +126,7 @@ export default function LaMethodePage() {
                 <p className="font-inter text-sm text-gray-600 leading-relaxed">{tool.description}</p>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -132,7 +135,7 @@ export default function LaMethodePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6">
           <h2 className="font-bebas text-5xl md:text-7xl text-white leading-none">
             Prêt à démarrer{" "}
-            <span className="font-caveat text-brand-orange italic">l&apos;aventure ?</span>
+            <span className="font-caveat text-brand-orange italic">l'aventure ?</span>
           </h2>
           <p className="font-inter text-lg text-white/70 max-w-lg">
             Premier échange gratuit de 30 minutes — sans engagement, pour voir si on se correspond.

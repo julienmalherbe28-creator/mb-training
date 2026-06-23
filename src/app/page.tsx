@@ -9,6 +9,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { TestimonialCard } from "@/components/ui/Card";
 import Accordion from "@/components/ui/Accordion";
 import HeroSection from "@/components/sections/HeroSection";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import {
   conceptContent,
   goalsContent,
@@ -28,6 +29,7 @@ export const metadata: Metadata = generatePageMetadata({
 export default function HomePage() {
   return (
     <>
+      {/* Données structurées FAQ pour les moteurs de recherche et IA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -35,9 +37,10 @@ export default function HomePage() {
         }}
       />
 
+      {/* ── Hero ────────────────────────────────────────────────────── */}
       <HeroSection />
 
-      {/* Concept */}
+      {/* ── Concept ────────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -48,7 +51,7 @@ export default function HomePage() {
             center
             className="mb-12"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {conceptContent.pillars.map((pillar) => (
               <div
                 key={pillar.title}
@@ -61,11 +64,11 @@ export default function HomePage() {
                 <p className="font-inter text-gray-600 leading-relaxed">{pillar.description}</p>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Objectifs */}
+      {/* ── Objectifs ───────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -77,7 +80,7 @@ export default function HomePage() {
             dark
             className="mb-12"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <ScrollReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {goalsContent.items.map((item) => (
               <Link
                 key={item.label}
@@ -96,14 +99,16 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="font-inter text-sm text-white/60 leading-relaxed">{item.description}</p>
-                <span className="font-inter text-xs text-brand-orange mt-auto">En savoir plus →</span>
+                <span className="font-inter text-xs text-brand-orange mt-auto">
+                  En savoir plus →
+                </span>
               </Link>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Témoignages */}
+      {/* ── Témoignages ───────────────────────────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -113,15 +118,15 @@ export default function HomePage() {
             center
             className="mb-12"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonialsContent.items.map((t) => (
               <TestimonialCard key={t.name} {...t} />
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Méthode */}
+      {/* ── Méthode ───────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -150,10 +155,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Le coach */}
+      {/* ── Le coach ──────────────────────────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Photo */}
             <div className="relative aspect-[4/5] rounded-card overflow-hidden shadow-lg">
               <Image
                 src={coachContent.imageUrl}
@@ -164,6 +170,7 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 to-transparent" />
             </div>
+            {/* Texte */}
             <div className="flex flex-col gap-6">
               <SectionTitle
                 eyebrow={coachContent.eyebrow}
@@ -187,7 +194,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* ── FAQ ────────────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-warm">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -201,7 +208,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA final */}
+      {/* ── CTA final ───────────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6">
           <h2 className="font-bebas text-5xl md:text-7xl text-white leading-none">

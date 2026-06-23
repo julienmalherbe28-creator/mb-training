@@ -4,6 +4,7 @@ import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
 import { brand } from "@/lib/brand";
 import Button from "@/components/ui/Button";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { articles, getArticleBySlug, getRelatedArticles } from "@/content/conseils";
 
 interface Props {
@@ -31,9 +32,28 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = getRelatedArticles(slug, 3);
+  const siteUrl = brand.site.url || "https://mb-training.fr";
 
   return (
     <div>
+
+      {/* Données structurées pour les moteurs de recherche et IA */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema({ title: article.title, description: article.description, slug: article.slug })),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema([
+            { name: "Accueil", url: siteUrl },
+            { name: "Conseils running", url: `${siteUrl}/conseils-running` },
+            { name: article.title, url: `${siteUrl}/conseils-running/${article.slug}` },
+          ])),
+        }}
+      />
 
       {/* ── Hero article ────────────────────────────────────────── */}
       <section className="bg-brand-dark text-white pt-36 pb-16 md:pt-44 md:pb-20">

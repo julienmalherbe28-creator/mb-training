@@ -4,6 +4,7 @@ import { generatePageMetadata } from "@/lib/seo";
 import { brand } from "@/lib/brand";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { articles } from "@/content/conseils";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -34,7 +35,7 @@ export default function ConseilsRunningPage() {
       {/* ── Articles ────────────────────────────────────────────────── */}
       <section className="section-padding bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Link
                 key={article.slug}
@@ -64,7 +65,7 @@ export default function ConseilsRunningPage() {
                 </div>
               </Link>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
